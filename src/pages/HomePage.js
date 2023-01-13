@@ -10,10 +10,10 @@ class HomePage extends React.Component {
       contacts: getContacts()
     }
 
-    this.onDeleteHander = this.onDeleteHander.bind(this);
+    this.onDeleteHandler = this.onDeleteHandler.bind(this);
   }
 
-  onDeleteHander(id) {
+  onDeleteHandler(id) {
     deleteContact(id);
 
     // update the contact state from data.js
