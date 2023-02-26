@@ -1,54 +1,50 @@
-import React from "react";
-import PropTypes from 'prop-types';
+import React from 'react';
 
 class ContactInput extends React.Component {
   constructor(props) {
     super(props);
 
+    // inisialisasi state
     this.state = {
-      name: "",
-      tag: "",
+      name: '',
+      tag: '',
     }
 
-    this.onNameChangeEventHander = this.onNameChangeEventHander.bind(this);
-    this.onTagChangeEventHander = this.onTagChangeEventHander.bind(this);
-    this.onSubmitEventHander = this.onSubmitEventHander.bind(this);
+    this.onNameChangeEventHandler = this.onNameChangeEventHandler.bind(this);
+    this.onTagChangeEventHandler = this.onTagChangeEventHandler.bind(this);
+    this.onSubmitEventHandler = this.onSubmitEventHandler.bind(this);
   }
 
-  onNameChangeEventHander(event) {
+  onNameChangeEventHandler(event) {
     this.setState(() => {
       return {
         name: event.target.value,
       }
-    })
+    });
   }
 
-  onTagChangeEventHander(event) {
+  onTagChangeEventHandler(event) {
     this.setState(() => {
       return {
         tag: event.target.value,
       }
-    })
+    });
   }
 
-  onSubmitEventHander(event) {
-    event.preventDefault()
-    this.props.addContact(this.state)
+  onSubmitEventHandler(event) {
+    event.preventDefault();
+    this.props.addContact(this.state);
   }
 
   render() {
-    return (
-      <form className="contact-input" onSubmit={this.onSubmitEventHander}>
-        <input type="text" placeholder="Name" value={this.state.name} onChange={this.onNameChangeEventHander} />
-        <input type="text" placeholder="Tag" value={this.state.tag} onChange={this.onTagChangeEventHander} />
-        <button type="submit">Tambah</button>
-      </form>
-    )
-  }
-}
-
-ContactInput.propTypes = {
-  addContact: PropTypes.func.isRequired,
+   return (
+     <form className='contact-input' onSubmit={this.onSubmitEventHandler}>
+       <input type="text" placeholder="Nama" value={this.state.name} onChange={this.onNameChangeEventHandler} />
+       <input type="text" placeholder="Tag" value={this.state.tag} onChange={this.onTagChangeEventHandler} />
+       <button type="submit">Tambah</button>
+     </form>
+   )
+ }
 }
 
 export default ContactInput;
